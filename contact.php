@@ -112,7 +112,7 @@
 									<li><a href="#">API</a></li>
 								</ul>
 							</li>
-							<li class="active"><a href="contact.html">Contact</a></li>
+							<li class="active"><a href="contact.php">Contact</a></li>
 							<li class="btn-cta"><a href="#"><span>Login</span></a></li>
 							<li class="btn-cta"><a href="#"><span>Create a Course</span></a></li>
 						</ul>
