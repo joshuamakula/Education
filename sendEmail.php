@@ -25,6 +25,25 @@ use PHPMailer\PHPMailer\PHPMailer;
         $mail->Port="456";
         $mail->SMTPSecure="ssl"
 
+        // email settings
+        $mail->isHTML(true);
+        $mail->setFrom($email, $fname, $lname);
+        $mail->addAddress("makulajosh@gmail.com");
+        $mail->Subject = ("$email ($subject)");
+        $mail->Body = $message;
+
+        if($mail->send()){
+            $status = "success";
+            $response = "Thank you for contacting us! We'll get back to you soon";
+        }
+        else
+        {
+            $status = "failed";
+            $response = "Something is wrong: <br>" .$mail->ErrorInfo;
+        }
+
+        exit(json_encode(array("status" => $status, "response" => $response)));
+
     }
 
 
