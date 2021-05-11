@@ -182,29 +182,29 @@ if(isset($_POST['submit'])){
 				<div class="col-md-6 animate-box">
 					<h4 class="sent-notification"></h4>
 					<h3>Get In Touch</h3>
-					<form action="" method="post">
+					<form id="myForm">
 						<div class="row form-group">
 							<div class="col-md-6">
 								<!-- <label for="fname">First Name</label> -->
-								<input type="text" name="fname" class="form-control" placeholder="Your firstname">
+								<input type="text" id="fname" class="form-control" placeholder="Your firstname">
 							</div>
 							<div class="col-md-6">
 								<!-- <label for="lname">Last Name</label> -->
-								<input type="text" name="lname" class="form-control" placeholder="Your lastname">
+								<input type="text" id="lname" class="form-control" placeholder="Your lastname">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="email">Email</label> -->
-								<input type="text" name="email" class="form-control" placeholder="Your email address">
+								<input type="text" id="email" class="form-control" placeholder="Your email address">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="subject">Subject</label> -->
-								<input type="text" name="subject" class="form-control" placeholder="Your subject of this message">
+								<input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
 							</div>
 						</div>
 
@@ -215,7 +215,7 @@ if(isset($_POST['submit'])){
 							</div>
 						</div>
 						<div class="form-group">
-							<input type="submit"  value="Send Message" class="btn btn-primary" value="Send Message">
+							<input type="button" onclick="sendEmail()"  value="Send Message" class="btn btn-primary" value="Send Message">
 						</div>
 
 					</form>		
@@ -357,7 +357,7 @@ if(isset($_POST['submit'])){
 
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 	
-	<!-- <script type="text/javascript">
+	<script type="text/javascript">
 		function sendEmail(){
 			var fname = $("#fname");
 			var lname = $("#lname");
@@ -395,7 +395,7 @@ if(isset($_POST['submit'])){
 				return true;
 			}
 		}
-	</script> -->
+	</script>
 
 	</body>
 </html>
