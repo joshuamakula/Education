@@ -1,3 +1,23 @@
+<?php 
+if(isset($_POST['submit'])){
+    $to = "makulajosh@gmail.com"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $first_name = $_POST['fname'];
+    $last_name = $_POST['lname'];
+    $subject = $_POST['subject'];
+    $subject2 = $_POST['lname'];
+    $message = $name . " " . $lname . " wrote the following:" . "\n\n" . $_POST['message'];
+    $message2 = "Here is a copy of your message " . $fname . "\n\n" . $_POST['message'];
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you " . $fname . ", we will contact you shortly.";
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    }
+?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -160,30 +180,31 @@
 
 				</div>
 				<div class="col-md-6 animate-box">
+					<h4 class="sent-notification"></h4>
 					<h3>Get In Touch</h3>
-					<form id="myForm" action="#">
+					<form action="" method="post">
 						<div class="row form-group">
 							<div class="col-md-6">
 								<!-- <label for="fname">First Name</label> -->
-								<input type="text" id="fname" class="form-control" placeholder="Your firstname">
+								<input type="text" name="fname" class="form-control" placeholder="Your firstname">
 							</div>
 							<div class="col-md-6">
 								<!-- <label for="lname">Last Name</label> -->
-								<input type="text" id="lname" class="form-control" placeholder="Your lastname">
+								<input type="text" name="lname" class="form-control" placeholder="Your lastname">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="email">Email</label> -->
-								<input type="text" id="email" class="form-control" placeholder="Your email address">
+								<input type="text" name="email" class="form-control" placeholder="Your email address">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="subject">Subject</label> -->
-								<input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
+								<input type="text" name="subject" class="form-control" placeholder="Your subject of this message">
 							</div>
 						</div>
 
@@ -194,7 +215,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<input type="submit" onclick="sendEmail()" value="Send Message" class="btn btn-primary">
+							<input type="submit"  value="Send Message" class="btn btn-primary" value="Send Message">
 						</div>
 
 					</form>		
@@ -334,8 +355,47 @@
     });
 	</script>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+	
+	<!-- <script type="text/javascript">
+		function sendEmail(){
+			var fname = $("#fname");
+			var lname = $("#lname");
+			var email = $("#email");
+			var subject = $("#subject");
+			var message = $("#message");
+
+			if(isNotEmpty(fname) && isNotEmpty(lname) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(message)){
+				$.ajax({
+					url: 'sendEmail.php',
+					method: 'POST',
+					dataType: 'json',
+					data:{
+						fname: fname.val(),
+						lname: lname.val(),
+						email: email.val(),
+						subject: subject.val(),
+						message: message.val()
+					}, success: function(response){
+						$('#myForm')[0].reset();
+						$('.sent-notification').text("Message sent successfully.");
+					}
+				});
+			}
+		}
+
+		function isNotEmpty(caller){
+			if(caller.val()==""){
+				caller.css('border', '1px solid red');
+				return false;
+			}
+			else
+			{
+				caller.css('border', '1px solid green');
+				return true;
+			}
+		}
+	</script> -->
 
 	</body>
 </html>
-
