@@ -160,7 +160,9 @@
 
 				</div>
 				<div class="col-md-6 animate-box">
-					<h4 class="sent-notification"></h4>
+					 <p id="thank-you-message">
+						Thank you for contacting us. We will be in touch with you very soon.
+					 </p>
 					<h3>Get In Touch</h3>
 					<form id="myForm" method="POST" action="PHP/contact-form-handler.php">
 						<div class="row form-group">
@@ -333,6 +335,16 @@
         day: d.getDate(),
         enableUtc: false
     });
+	</script>
+
+	<script type="text/javascript">
+		const form = document.querySelector('form');
+		const thankYouMessage = document.querySelector('#thank-you-message');
+		form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		thankYouMessage.classList.add('show');
+		setTimeout(() => form.submit(), 2000);
+		});
 	</script>
 
 	<script type="text/JavaScript">
