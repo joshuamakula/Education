@@ -39,7 +39,7 @@ $email_body = "You have received a new message. ".
 
     "Email: $email_address\n Message \n $message";
 
-$headers = "From: $myemail\n";
+$headers = "From: $email_address\n";
 
 $headers .= "Reply-To: $email_address";
 
