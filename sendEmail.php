@@ -1,7 +1,7 @@
  <?php
+
+
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
     if(isset($_POST['fname']) && isset($_POST['email'])){
         $fname = $_POST['fname'];
@@ -19,13 +19,12 @@ use PHPMailer\PHPMailer\Exception;
         $mail = new PHPMailer();
 
         // smtp settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
         $mail->Host = "smtp.gmail.com";
         $mail->SMTPAuth = true;
         $mail->Username = "ssembatyafred444@gmail.com";
         $mail->Password = 'SCHOOL50';
-        $mail->Port="465";
+        $mail->Port=465;
         $mail->SMTPSecure="ssl"
 
         // Recipients email settings
@@ -48,6 +47,5 @@ use PHPMailer\PHPMailer\Exception;
         exit(json_encode(array("status" => $status, "response" => $response)));
 
     }
-
 
 ?> 

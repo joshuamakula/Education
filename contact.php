@@ -1,23 +1,3 @@
-<?php 
-if(isset($_POST['submit'])){
-    $to = "makulajosh@gmail.com"; // this is your Email address
-    $from = $_POST['email']; // this is the sender's Email address
-    $first_name = $_POST['fname'];
-    $last_name = $_POST['lname'];
-    $subject = $_POST['subject'];
-    $subject2 = $_POST['lname'];
-    $message = $name . " " . $lname . " wrote the following:" . "\n\n" . $_POST['message'];
-    $message2 = "Here is a copy of your message " . $fname . "\n\n" . $_POST['message'];
-
-    $headers = "From:" . $from;
-    $headers2 = "From:" . $to;
-    mail($to,$subject,$message,$headers);
-    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-    echo "Mail Sent. Thank you " . $fname . ", we will contact you shortly.";
-    // You can also use header('Location: thank_you.php'); to redirect to another page.
-    }
-?>
-
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -182,29 +162,29 @@ if(isset($_POST['submit'])){
 				<div class="col-md-6 animate-box">
 					<h4 class="sent-notification"></h4>
 					<h3>Get In Touch</h3>
-					<form id="myForm">
+					<form id="myForm" method="POST" action="PHP/contact-form-handler.php">
 						<div class="row form-group">
 							<div class="col-md-6">
 								<!-- <label for="fname">First Name</label> -->
-								<input type="text" id="fname" class="form-control" placeholder="Your firstname">
+								<input type="text" id="fname" name="fname" class="form-control" placeholder="Your firstname">
 							</div>
 							<div class="col-md-6">
 								<!-- <label for="lname">Last Name</label> -->
-								<input type="text" id="lname" class="form-control" placeholder="Your lastname">
+								<input type="text" id="lname" name="lname" class="form-control" placeholder="Your lastname">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="email">Email</label> -->
-								<input type="text" id="email" class="form-control" placeholder="Your email address">
+								<input type="text" id="email" name="email" class="form-control" placeholder="Your email address">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="subject">Subject</label> -->
-								<input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
+								<input type="text" id="subject" name="subject" class="form-control" placeholder="Your subject of this message">
 							</div>
 						</div>
 
@@ -215,7 +195,7 @@ if(isset($_POST['submit'])){
 							</div>
 						</div>
 						<div class="form-group">
-							<input type="button" onclick="sendEmail()"  value="Send Message" class="btn btn-primary" value="Send Message">
+							<input type="submit" name="submit" value="Send Message" class="btn btn-primary">
 						</div>
 
 					</form>		
@@ -355,9 +335,15 @@ if(isset($_POST['submit'])){
     });
 	</script>
 
-	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+	<script type="text/JavaScript">
+		var frmvalidator  = new Validator("myForm");
+		frmvalidator.addValidation("fname","req","Please provide your name");
+		frmvalidator.addValidation("lname","req","Please provide your name");
+		frmvalidator.addValidation("email","req","Please provide your email");
+		frmvalidator.addValidation("email","email","Please enter a valid email address");
+	</script>
 	
-	<script type="text/javascript">
+	 <!-- <script type="text/javascript">
 		function sendEmail(){
 			var fname = $("#fname");
 			var lname = $("#lname");
@@ -395,7 +381,7 @@ if(isset($_POST['submit'])){
 				return true;
 			}
 		}
-	</script>
+	</script> -->
 
 	</body>
 </html>
