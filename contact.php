@@ -194,7 +194,7 @@
 						</div>
 
 					</form>		 -->
-					<form action="contact-form-handler.php" method="post">
+					<form action="PHP/contact-form-handler.php" method="post">
 						<label for="name">Your Name</label>
 						<input type="text"  name="name" placeholder="Your name..">
 
