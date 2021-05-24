@@ -162,35 +162,30 @@
 				<div class="col-md-6 animate-box">
 					 
 					<h3>Get In Touch</h3>
-					<form id="myForm" method="post" action="PHP/contact-form-handler.php">
+					<!-- <form id="myForm" method="post" action="PHP/contact-form-handler.php">
 						<div class="row form-group">
 							<div class="col-md-6">
-								<!-- <label for="fname">First Name</label> -->
 								<input type="text" id="fname" name="fname" class="form-control" placeholder="Your firstname">
 							</div>
 							<div class="col-md-6">
-								<!-- <label for="lname">Last Name</label> -->
 								<input type="text" id="lname" name="lname" class="form-control" placeholder="Your lastname">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
-								<!-- <label for="email">Email</label> -->
 								<input type="text" id="email" name="email" class="form-control" placeholder="Your email address">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
-								<!-- <label for="subject">Subject</label> -->
 								<input type="text" id="subject" name="subject" class="form-control" placeholder="Your subject of this message">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
-								<!-- <label for="message">Message</label> -->
 								<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
 							</div>
 						</div>
@@ -198,7 +193,19 @@
 							<button type="submit" name="submit" class="btn btn-primary">Send Message</button>
 						</div>
 
-					</form>		
+					</form>		 -->
+					<form action="mail.php" method="post">
+						<label for="name">Your Name</label>
+						<input type="text"  name="name" placeholder="Your name..">
+
+						<label for="lname">Email</label>
+						<input type="email"  name="email" placeholder="Your email..">
+					
+						<label for="message">Message</label>
+						<textarea  name="message" placeholder="Write something.." style="height:200px"></textarea>
+
+						<input type="submit" value="Submit">
+					</form>
 				</div>
 			</div>
 			
