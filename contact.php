@@ -162,7 +162,7 @@
 				<div class="col-md-6 animate-box">
 					 
 					<h3>Get In Touch</h3>
-					<form id="myForm" method="POST" action="PHP/contact-form-handler.php">
+					<form id="myForm" method="post" action="PHP/contact-form-handler.php">
 						<div class="row form-group">
 							<div class="col-md-6">
 								<!-- <label for="fname">First Name</label> -->
@@ -195,7 +195,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<input type="submit" name="submit" value="Send Message" class="btn btn-primary">
+							<button type="submit" name="submit" class="btn btn-primary">Send Message</button>
 						</div>
 
 					</form>		
