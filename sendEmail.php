@@ -2,6 +2,7 @@
 
 
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
     if(isset($_POST['fname']) && isset($_POST['email'])){
         $fname = $_POST['fname'];
