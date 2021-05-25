@@ -339,7 +339,7 @@
 		frmvalidator.addValidation("email","email","Please enter a valid email address");
 	</script>
 	
-	 <!-- <script type="text/javascript">
+	 <script type="text/javascript">
 		function sendEmail(){
 			var fname = $("#fname");
 			var lname = $("#lname");
@@ -377,7 +377,7 @@
 				return true;
 			}
 		}
-	</script> -->
+	</script>
 
 	</body>
 </html>
